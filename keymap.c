@@ -7,6 +7,12 @@
 
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
+  DRAG_SCROLL,
+  TOGGLE_SCROLL,
+  NAVI_INC_CPI,
+  NAVI_DEC_CPI,
+  NAVI_TURBO,
+  NAVI_AIM
 };
 
 
@@ -15,10 +21,12 @@ enum tap_dance_codes {
   DANCE_0,
 };
 
+#define _BASE_LAYER 0
+#define _GAME_LAYER 1
 #define _MOUSE_LAYER 5
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_voyager(
+  [_BASE_LAYER] = LAYOUT_voyager(
     KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
     KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
     LT(5, KC_ESC),  LGUI_T(KC_A),   LALT_T(KC_S),   LCTL_T(KC_D),   LSFT_T(KC_F),   KC_G,                                           KC_H,           RSFT_T(KC_J),   RCTL_T(KC_K),   RALT_T(KC_L),   RGUI_T(KC_SCLN),KC_QUOTE,
@@ -26,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                     LT(2, KC_BSPC), LT(4, KC_TAB),                                  KC_ENTER,       KC_SPACE
   ),
   // Gaming Layer - Turns off HRMods on left half.
-  [1] = LAYOUT_voyager(
+  [_GAME_LAYER] = LAYOUT_voyager(
     KC_EQUAL,          KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                        KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
     KC_TAB,            KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
     KC_ESCAPE,         KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                                        KC_H,           RSFT_T(KC_J),   RCTL_T(KC_K),   RALT_T(KC_L),   RGUI_T(KC_SCLN),KC_QUOTE,
@@ -34,10 +42,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                        KC_BSPC,        KC_SPACE,                                    LT(2, KC_ENTER),KC_SPACE
   ),
   [2] = LAYOUT_voyager(
-    DF(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LPRN,        KC_RPRN,        KC_TRANSPARENT,
+    DF(_BASE_LAYER),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LPRN,        KC_RPRN,        KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LABK,        KC_RABK,        KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LCBR,        KC_RCBR,        KC_TRANSPARENT,
-    DF(1),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LBRC,        KC_RBRC,        KC_TRANSPARENT,
+    DF(_GAME_LAYER),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LBRC,        KC_RBRC,        KC_TRANSPARENT,
                                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [3] = LAYOUT_voyager(
@@ -56,18 +64,104 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   // Mouse Layer
   [_MOUSE_LAYER] = LAYOUT_voyager(
+    NAVI_DEC_CPI,   NAVI_INC_CPI,   KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, QK_LLCK,                                        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN3,     TOGGLE_SCROLL,                                  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN2,     KC_MS_BTN1,     DRAG_SCROLL,                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_MS_BTN1,     KC_MS_BTN2,     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                    KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
+                                                    KC_TRANSPARENT, KC_TRANSPARENT,                                                 KC_TRANSPARENT, KC_TRANSPARENT
+
   ),
 };
 
+extern bool set_scrolling;
+extern bool navigator_turbo;
+extern bool navigator_aim;
 
+void pointing_device_init_user(void) {
+    set_auto_mouse_enable(true);
+}
 
+bool is_mouse_record_user(uint16_t keycode, keyrecord_t *record) {
+    // Treat all keys as mouse keys when in the automouse layer so that any key set resets the timeout without leaving the layer.
+    if (!layer_state_is(AUTO_MOUSE_TARGET_LAYER)) {
+        // When depressing a mouse key with a LT key at the same time, the mouse key tracker is not decremented.
+        // This is a workaround to fix that
+        if (IS_MOUSE_KEYCODE(keycode) && !record->event.pressed) {
+            return true;
+        }
+        return false;
+    } else {
+        return false;
+    }
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  // Not doing anything here rn.
-  return true;
+    switch (keycode) {
+        case QK_MODS ... QK_MODS_MAX:
+            // Mouse keys with modifiers work inconsistently across operating systems, this makes sure that modifiers are always
+            // applied to the mouse key that was pressed.
+            if (IS_MOUSE_KEYCODE(QK_MODS_GET_BASIC_KEYCODE(keycode))) {
+                if (record->event.pressed) {
+                    add_mods(QK_MODS_GET_MODS(keycode));
+                    send_keyboard_report();
+                    wait_ms(2);
+                    register_code(QK_MODS_GET_BASIC_KEYCODE(keycode));
+                    return false;
+                } else {
+                    wait_ms(2);
+                    del_mods(QK_MODS_GET_MODS(keycode));
+                }
+            }
+            break;
+
+        case DRAG_SCROLL:
+            if (record->event.pressed) {
+                set_scrolling = true;
+            } else {
+                set_scrolling = false;
+            }
+            return false;
+        case TOGGLE_SCROLL:
+            if (record->event.pressed) {
+                set_scrolling = !set_scrolling;
+            }
+            return false;
+            break;
+        case NAVI_TURBO:
+            if (record->event.pressed) {
+                navigator_turbo = true;
+            } else {
+                navigator_turbo = false;
+            }
+            return false;
+        case NAVI_AIM:
+            if (record->event.pressed) {
+                navigator_aim = true;
+            } else {
+                navigator_aim = false;
+            }
+            return false;
+        case NAVI_INC_CPI:
+            if (record->event.pressed) {
+                pointing_device_set_cpi(1);
+            }
+            return false;
+        case NAVI_DEC_CPI:
+            if (record->event.pressed) {
+                pointing_device_set_cpi(0);
+            }
+            return false;
+        case RGB_SLD:
+            if (record->event.pressed) {
+                rgblight_mode(1);
+            }
+            return false;
+        case DF(_GAME_LAYER):
+            set_auto_mouse_enable(false);
+            return true;
+        case DF(_BASE_LAYER):
+            set_auto_mouse_enable(true);
+            return true;
+    }
+    return true;
 }
