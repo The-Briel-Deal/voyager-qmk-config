@@ -27,48 +27,48 @@ enum tap_dance_codes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE_LAYER] = LAYOUT_voyager(
-    KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
-    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
-    LT(5, KC_ESC),  LGUI_T(KC_A),   LALT_T(KC_S),   LCTL_T(KC_D),   LSFT_T(KC_F),   KC_G,                                           KC_H,           RSFT_T(KC_J),   RCTL_T(KC_K),   RALT_T(KC_L),   RGUI_T(KC_SCLN),KC_QUOTE,
-    KC_GRAVE,       KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       MO(3),
-                                                                    LT(2, KC_BSPC), LT(4, KC_TAB),                                  KC_ENTER,       KC_SPACE
+    KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,               KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
+    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,               KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
+    LT(5, KC_ESC),  LGUI_T(KC_A),   LALT_T(KC_S),   LCTL_T(KC_D),   LSFT_T(KC_F),   KC_G,               KC_H,           RSFT_T(KC_J),   RCTL_T(KC_K),   RALT_T(KC_L),   RGUI_T(KC_SCLN),KC_QUOTE,
+    KC_GRAVE,       KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,               KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       MO(3),
+                                                                    LT(2, KC_BSPC), LT(4, KC_TAB),      KC_ENTER,       KC_SPACE
   ),
   // Gaming Layer - Turns off HRMods on left half.
   [_GAME_LAYER] = LAYOUT_voyager(
-    KC_EQUAL,          KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                        KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
-    KC_TAB,            KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
-    KC_ESCAPE,         KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                                        KC_MS_BTN1,     KC_MS_BTN2,     RCTL_T(KC_K),   RALT_T(KC_L),   RGUI_T(KC_SCLN),KC_QUOTE,
-    KC_GRAVE,          KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                        KC_MS_BTN4,     KC_MS_BTN5,     KC_COMMA,       KC_DOT,         KC_SLASH,       MO(3),
-                                                                       KC_BSPC,        KC_SPACE,                                    KC_MS_BTN3,     LT(2, KC_SPACE)
+    KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,               KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
+    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,               KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,
+    KC_ESCAPE,      KC_A,           KC_S,           KC_D,           KC_F,           KC_G,               KC_MS_BTN1,     KC_MS_BTN2,     RCTL_T(KC_K),   RALT_T(KC_L),   RGUI_T(KC_SCLN),KC_QUOTE,
+    KC_GRAVE,       KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,               KC_MS_BTN4,     KC_MS_BTN5,     KC_COMMA,       KC_DOT,         KC_SLASH,       MO(3),
+                                                                    KC_BSPC,        KC_SPACE,           KC_MS_BTN3,     LT(2, KC_SPACE)
   ),
   [2] = LAYOUT_voyager(
-    DF(_BASE_LAYER),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LPRN,        KC_RPRN,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LABK,        KC_RABK,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LCBR,        KC_RCBR,        KC_TRANSPARENT,
-    DF(_GAME_LAYER),KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LBRC,        KC_RBRC,        KC_TRANSPARENT,
-                                                                    KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
+    DF(_BASE_LAYER),_______,        _______,        _______,        _______,        _______,            _______,        _______,        _______,        KC_LPRN,        KC_RPRN,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,            _______,        _______,        _______,        KC_LABK,        KC_RABK,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,            _______,        _______,        _______,        KC_LCBR,        KC_RCBR,        _______,
+    DF(_GAME_LAYER),_______,        _______,        _______,        _______,        _______,            _______,        _______,        _______,        KC_LBRC,        KC_RBRC,        _______,
+                                                                    _______,        _______,            _______,        _______
   ),
   [3] = LAYOUT_voyager(
-    KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                                          KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_PSCR,
-    KC_TRANSPARENT, KC_F11,         KC_F12,         KC_F13,         KC_F14,         KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                    KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
+    _______,        KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,              KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_PSCR,
+    _______,        KC_F11,         KC_F12,         KC_F13,         KC_F14,         _______,            _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,            _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,            _______,        _______,        _______,        _______,        _______,        _______,
+                                                                    _______,        _______,            _______,        _______
   ),
   [4] = LAYOUT_voyager(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                    KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
+    _______,        _______,        _______,        _______,        _______,        _______,            _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,            _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,            KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       _______,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,            _______,        _______,        _______,        _______,        _______,        _______,
+                                                                    _______,        _______,            _______,        _______
   ),
   // Mouse Layer
   [_MOUSE_LAYER] = LAYOUT_voyager(
-    NAVI_DEC_CPI,   NAVI_INC_CPI,   KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, QK_LLCK,                                        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN3,     TOGGLE_SCROLL,                                  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_MS_BTN2,     KC_MS_BTN1,     DRAG_SCROLL,                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                    KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
+    NAVI_DEC_CPI,   NAVI_INC_CPI,   _______,        _______,        _______,        QK_LLCK,            _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        _______,        _______,        _______,        KC_MS_BTN3,     TOGGLE_SCROLL,      _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        _______,        _______,        KC_MS_BTN2,     KC_MS_BTN1,     DRAG_SCROLL,        _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,            _______,        _______,        _______,        _______,        _______,        _______,
+                                                                    _______,        _______,            _______,        _______
 
   ),
 };
