@@ -1,3 +1,5 @@
+#include "action_layer.h"
+#include "pointing_device_auto_mouse.h"
 #include "quantum_keycodes.h"
 #include "quantum_keycodes_legacy.h"
 #include QMK_KEYBOARD_H
@@ -157,6 +159,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
         case DF(_GAME_LAYER):
+            layer_off(get_auto_mouse_layer());
             set_auto_mouse_enable(false);
             return true;
         case DF(_BASE_LAYER):
